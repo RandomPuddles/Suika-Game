@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmy7hvv8pwrea"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1w88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r150o"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ContainerFloor" type="StaticBody2D" parent="."]
+position = Vector2(575.99994, 624)
+scale = Vector2(36.25756, -2.58)
+physics_material_override = SubResource("PhysicsMaterial_c1w88")
+
+[node name="FloorHitbox" type="CollisionShape2D" parent="ContainerFloor"]
+shape = SubResource("RectangleShape2D_r150o")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(241.00002, 286)
+scale = Vector2(3.08, 33.561)
+physics_material_override = SubResource("PhysicsMaterial_c1w88")
+
+[node name="LeftWallHitbox" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_r150o")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(883.99994, 285.99997)
+scale = Vector2(3.08, 33.561)
+physics_material_override = SubResource("PhysicsMaterial_c1w88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_r150o")

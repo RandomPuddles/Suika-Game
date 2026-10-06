@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://deqef6idqxg4m"]
+[gd_scene load_steps=4 format=3 uid="uid://deqef6idqxg4m"]
 
 [ext_resource type="Texture2D" uid="uid://dkogbgt71yawk" path="res://Assets/fruits pack/apple.png" id="1_u4byd"]
 [ext_resource type="Script" uid="uid://b6v63wu0nobmo" path="res://Scripts/Apple.gd" id="2_cvq6o"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvq6o"]
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_cvq6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("1_u4byd")
 script = ExtResource("2_cvq6o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(0.10672474, 4.172325e-07)
+scale = Vector2(0.84979004, 0.8)
+build_mode = 1
+polygon = PackedVector2Array(6.9349785, 7.4999995, 6.9349785, 6.2499995, 8.111739, 4.9999995, 8.111739, 3.7499995, 9.288501, 3.7499995, 9.288501, -3.7500005, 8.111739, -3.7500005, 8.111739, -6.2500005, 5.758217, -6.2500005, 5.758217, -7.5000005, -0.12558953, -7.5000005, -0.12558953, -10.000001, -1.3023508, -10.000001, -1.3023508, -7.5000005, -6.0093956, -7.5000005, -7.186157, -6.2500005, -8.362918, -6.2500005, -8.362918, -5.0000005, -9.53968, -5.0000005, -9.53968, 4.9999995, -8.362918, 4.9999995, -8.362918, 7.4999995, -7.186157, 7.4999995, -7.186157, 8.749999, -6.0093956, 8.749999, -6.0093956, 9.999999, 3.4046943, 9.999999, 3.4046943, 8.749999, 5.758217, 8.749999, 5.758217, 7.4999995)

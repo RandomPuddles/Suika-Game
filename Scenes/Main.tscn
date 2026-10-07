@@ -1,40 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmy7hvv8pwrea"]
+[gd_scene format=3 uid="uid://cmy7hvv8pwrea"]
 
+[ext_resource type="Script" uid="uid://cf3niril6eaug" path="res://Scripts/MainEngine.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://deqef6idqxg4m" path="res://Scenes/Apple.tscn" id="1_r150o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1w88"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r150o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=949805905]
+script = ExtResource("1_idj7w")
 
-[node name="ContainerFloor" type="StaticBody2D" parent="."]
-position = Vector2(575.99994, 624)
+[node name="ContainerFloor" type="StaticBody2D" parent="." unique_id=231449686]
+position = Vector2(557, 468)
 scale = Vector2(36.25756, -2.58)
 physics_material_override = SubResource("PhysicsMaterial_c1w88")
 
-[node name="FloorHitbox" type="CollisionShape2D" parent="ContainerFloor"]
-shape = SubResource("RectangleShape2D_r150o")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContainerFloor" unique_id=1137702636]
+shape = SubResource("RectangleShape2D_idj7w")
 
-[node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(241.00002, 286)
-scale = Vector2(3.08, 33.561)
+[node name="ColorRect" type="ColorRect" parent="ContainerFloor/CollisionShape2D" unique_id=1473586290]
+offset_left = -9.901382
+offset_top = -9.302326
+offset_right = 32.94362
+offset_bottom = 30.697674
+scale = Vector2(0.465, 0.465)
+
+[node name="leftWall" type="StaticBody2D" parent="." unique_id=1637601453]
+position = Vector2(377.99997, 439)
+rotation = 1.5707964
+scale = Vector2(36.25756, -2.58)
 physics_material_override = SubResource("PhysicsMaterial_c1w88")
 
-[node name="LeftWallHitbox" type="CollisionShape2D" parent="LeftWall"]
-shape = SubResource("RectangleShape2D_r150o")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftWall" unique_id=125041117]
+shape = SubResource("RectangleShape2D_idj7w")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(883.99994, 285.99997)
-scale = Vector2(3.08, 33.561)
+[node name="ColorRect" type="ColorRect" parent="leftWall/CollisionShape2D" unique_id=1460623811]
+offset_left = -9.901382
+offset_top = -9.302326
+offset_right = 32.94362
+offset_bottom = 30.697674
+scale = Vector2(0.465, 0.465)
+
+[node name="rightWall" type="StaticBody2D" parent="." unique_id=361259388]
+position = Vector2(733.00006, 439)
+rotation = -1.5707964
+scale = Vector2(36.25756, -2.58)
 physics_material_override = SubResource("PhysicsMaterial_c1w88")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("RectangleShape2D_r150o")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightWall" unique_id=201856616]
+shape = SubResource("RectangleShape2D_idj7w")
 
-[node name="Node2D2" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(546, 43)
+[node name="ColorRect" type="ColorRect" parent="rightWall/CollisionShape2D" unique_id=1248074371]
+offset_left = -9.901382
+offset_top = -9.302326
+offset_right = 32.94362
+offset_bottom = 30.697674
+scale = Vector2(0.465, 0.465)
 
-[node name="Node2D3" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(508, 61.999992)
-rotation = -1.7791291
+[node name="apple" parent="." unique_id=1246566248 instance=ExtResource("1_r150o")]
+position = Vector2(1221, 73)

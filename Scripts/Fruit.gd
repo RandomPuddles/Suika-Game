@@ -1,5 +1,5 @@
-class_name Apple
-extends Fruit
+class_name Fruit
+extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

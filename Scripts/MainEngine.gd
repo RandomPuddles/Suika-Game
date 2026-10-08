@@ -10,8 +10,6 @@ var spawnedFruits = []
 func _ready() -> void:
 	curFruit = nextFruit() # Fruit object
 	curFruit.freeze = true
-	curFruit.collision_layer = 0
-	curFruit.collision_mask = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -24,23 +22,27 @@ func nextFruit() -> RigidBody2D:
 	if fruit == "apple":
 		var apple_instance = apple_scene.instantiate()
 		add_child(apple_instance)
+		apple_instance.collision_layer = 0 # Disable collision for held fruit
+		apple_instance.collision_mask = 0
 		return apple_instance
 	else:
 		var apple_instance = apple_scene.instantiate()
 		add_child(apple_instance)
+		apple_instance.collision_layer = 0
+		apple_instance.collision_mask = 0
 		return apple_instance
 
 # Triggered upon left-click
 func fruitDrop() -> void:
 	curFruit.freeze = false
 	curFruit.sleeping = false
-	curFruit.collision_layer = 1
+	curFruit.collision_layer = 1 # Enable collision for dropped fruit
 	curFruit.collision_mask = 1
 	
 	spawnedFruits.append(curFruit)
 
 	curFruit = nextFruit()
-	curFruit.collision_layer = 0
+	curFruit.collision_layer = 0 # Disable collision for held fruit
 	curFruit.collision_mask = 0
 	curFruit.freeze = true
 	

@@ -1,5 +1,6 @@
 extends Node2D
 var apple_scene: PackedScene = preload("res://Scenes/Apple.tscn")
+@onready var timer: Timer = $Timer
 
 # Fruits that exist
 var fruits = ["cherry", "apple"]
@@ -13,7 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("drop_fruit"):
+	if Input.is_action_just_pressed("drop_fruit") and timer.is_stopped():
+		timer.start()
 		fruitDrop()
 	curFruit.global_position = Vector2(get_global_mouse_position().x, 50) # Held fruit follows mouse
 
@@ -47,4 +49,5 @@ func fruitDrop() -> void:
 	curFruit.freeze = true
 	
 	for fruit in spawnedFruits:
-		print(fruit.position)
+		if fruit.position.x > 1000 or fruit.position.x < -1000 or fruit.position.y > 1000 or fruit.position.y < -1000:
+			print(fruit.position)

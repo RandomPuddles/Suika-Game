@@ -59,3 +59,7 @@ scale = Vector2(0.465, 0.465)
 
 [node name="apple" parent="." unique_id=1246566248 instance=ExtResource("1_r150o")]
 position = Vector2(1221, 73)
+
+[node name="Timer" type="Timer" parent="." unique_id=1907751830]
+one_shot = true
+ignore_time_scale = true

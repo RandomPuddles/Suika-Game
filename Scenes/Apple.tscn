@@ -34,10 +34,11 @@ size = Vector2(1, 2)
 [node name="RigidBody2D" type="RigidBody2D" unique_id=463669507]
 physics_material_override = SubResource("PhysicsMaterial_cvq6o")
 continuous_cd = 2
+script = ExtResource("2_cvq6o")
+fruitLevel = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007402694]
 texture = ExtResource("1_u4byd")
-script = ExtResource("2_cvq6o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1354817534]
 position = Vector2(-1, 1)

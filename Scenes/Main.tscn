@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf3niril6eaug" path="res://Scripts/MainEngine.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://deqef6idqxg4m" path="res://Scenes/Apple.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://dj83rfoqojcxb" path="res://Scenes/merge_handler.gd" id="3_kln2b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1w88"]
 
@@ -63,3 +64,6 @@ position = Vector2(1221, 73)
 [node name="Timer" type="Timer" parent="." unique_id=1907751830]
 one_shot = true
 ignore_time_scale = true
+
+[node name="MergeHandler" type="Node2D" parent="." unique_id=1764377788]
+script = ExtResource("3_kln2b")

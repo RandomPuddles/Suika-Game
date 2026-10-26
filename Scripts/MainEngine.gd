@@ -1,6 +1,6 @@
 extends Node2D
 var apple_scene: PackedScene = preload("res://Scenes/Apple.tscn")
-@onready var timer: Timer = $Timer
+@onready var timer: Timer = $Timer # used for fruit cooldown
 
 # Fruits that exist
 var fruits = ["cherry", "apple"]

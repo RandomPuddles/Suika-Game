@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dmue25680jlib"]
+
+[ext_resource type="Texture2D" uid="uid://d3le0djj6lftb" path="res://Assets/fruits pack/banana.png" id="1_ej4t0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkbku"]
+radius = 3.1521132
+height = 18.91268
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1400689739]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1069927808]
+texture = ExtResource("1_ej4t0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=867097435]
+position = Vector2(1, 2)
+rotation = -2.1734042
+shape = SubResource("CapsuleShape2D_wkbku")

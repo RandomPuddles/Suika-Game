@@ -1,9 +1,13 @@
 extends Node2D
-var apple_scene: PackedScene = preload("res://Scenes/Apple.tscn")
+var fruitArray: Array[PackedScene] = [
+	preload("res://Scenes/Apple.tscn"),
+	preload("res://Scenes/Banana.tscn")
+]
+
 @onready var timer: Timer = $Timer # used for fruit cooldown
 
 # Fruits that exist
-var fruits = ["cherry", "apple"]
+var fruits = ["banana", "apple"]
 var curFruit: RigidBody2D
 var spawnedFruits = []
 
@@ -19,20 +23,14 @@ func _process(_delta: float) -> void:
 		fruitDrop()
 	curFruit.global_position = Vector2(get_global_mouse_position().x, 50) # Held fruit follows mouse
 
+# Randomly chooses held fruit
 func nextFruit() -> RigidBody2D:
-	var fruit = fruits.pick_random() # Random fruit selection
-	if fruit == "apple":
-		var apple_instance = apple_scene.instantiate()
-		add_child(apple_instance)
-		apple_instance.collision_layer = 0 # Disable collision for held fruit
-		apple_instance.collision_mask = 0
-		return apple_instance
-	else:
-		var apple_instance = apple_scene.instantiate()
-		add_child(apple_instance)
-		apple_instance.collision_layer = 0
-		apple_instance.collision_mask = 0
-		return apple_instance
+	var fruitScene = fruitArray.pick_random() # Random fruit selection
+	var fruitInstance = fruitScene.instantiate()
+	add_child(fruitInstance)
+	fruitInstance.collision_layer = 0 # Disable collision for held fruit
+	fruitInstance.collision_mask = 0
+	return fruitInstance
 
 # Triggered upon left-click
 func fruitDrop() -> void:
@@ -48,6 +46,7 @@ func fruitDrop() -> void:
 	curFruit.collision_mask = 0
 	curFruit.freeze = true
 	
+	# Shows if any fruits are outside of the container
 	for fruit in spawnedFruits:
 		if fruit.position.x > 1000 or fruit.position.x < -1000 or fruit.position.y > 1000 or fruit.position.y < -1000:
 			print(fruit.position)

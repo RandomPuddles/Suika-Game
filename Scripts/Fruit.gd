@@ -8,14 +8,14 @@ var merging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	body_entered.connect(fruitTouchCheck)
-
+	body_entered.connect(fruitTouchCheck) # Should pass body to fruitTouchCheck automatically
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 func fruitTouchCheck(body: Node):
+	print("fruitTouchCheck TESTING")
 	if merging == false and body is Fruit:
 		if body.fruitLevel == fruitLevel: # Only merge same-type fruits
 			merging = true

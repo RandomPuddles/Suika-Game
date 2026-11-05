@@ -2,10 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dkogbgt71yawk" path="res://Assets/fruits pack/apple.png" id="1_u4byd"]
 [ext_resource type="Script" uid="uid://b6v63wu0nobmo" path="res://Scripts/Apple.gd" id="2_cvq6o"]
+[ext_resource type="Script" uid="uid://6sy2m5vc0kr1" path="res://Scenes/merge_radius.gd" id="3_wkrbd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvq6o"]
 friction = 0.5
 bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ooe16"]
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvq6o"]
 radius = 7.0
@@ -40,32 +44,39 @@ fruitLevel = 3
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007402694]
 texture = ExtResource("1_u4byd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1354817534]
+[node name="MergeRadius" type="Area2D" parent="." unique_id=1428523671]
+script = ExtResource("3_wkrbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MergeRadius" unique_id=717228945]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ooe16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155182302]
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_cvq6o")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=893392003]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2012781324]
 shape = SubResource("RectangleShape2D_wkrbd")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=418445828]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1396688772]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_usam7")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=85671899]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1884921251]
 shape = SubResource("RectangleShape2D_yyvoc")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1599509513]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=2040607589]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_jc2x0")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1094778568]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=714033412]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_r6obf")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=47254261]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=615026228]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_j6vfn")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=948651897]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=154091273]
 position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_ooe16")
